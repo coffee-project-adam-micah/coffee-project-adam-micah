@@ -44,23 +44,16 @@ function addCoffee(coffee, roast) {
     localStorage.setItem("coffees" ,JSON.stringify(coffees));
 }
 
-
-
-
-// function updateCoffees(e) {
-//     e.preventDefault(); // don't submit the form, we just want to update the data
-//     const selectedRoast = roastSelection.value;
-//     let filteredCoffees = [];
-//     coffees.forEach(function(coffee) {
-//         if (coffee.roast === selectedRoast) {
-//             filteredCoffees.push(coffee);
-//         }
-//     });
-//     tbody.innerHTML = renderCoffees(filteredCoffees);
-// }
+function loadCoffeesFromLocalStorage() {
+    let arr = JSON.parse(localStorage.getItem("coffees") || "[]");
+    console.log(arr);
+    if (coffees.length < arr.length) {
+        coffees = arr;
+    }
+}
 
 // from http://www.ncausa.org/About-Coffee/Coffee-Roasts-Guide
-const coffees = [
+let coffees = [
     {id: 1, name: 'Light City', roast: 'light'},
     {id: 2, name: 'Half City', roast: 'light'},
     {id: 3, name: 'Cinnamon', roast: 'light'},
@@ -84,7 +77,9 @@ const roastSelection = document.querySelector('#roast-selection');
 const submitCoffee = document.querySelector("#submit-coffee");
 const addCoffeeRoast = document.querySelector("#add-coffee-roast");
 const addCoffeeName = document.querySelector("#add-coffee-name");
+const removeLocalStorageButton = document.querySelector('#remove-local-storage')
 
+loadCoffeesFromLocalStorage();
 tbody.innerHTML = renderCoffees(coffees);
 
 submitButton.addEventListener('click', () => {
@@ -102,4 +97,9 @@ roastSelection.addEventListener('change', () => {
 submitCoffee.addEventListener("click", () => {
     addCoffee(addCoffeeName.value, addCoffeeRoast.value);
     tbody.innerHTML = renderCoffees(coffees);
+});
+
+removeLocalStorageButton.addEventListener("click", () => {
+    localStorage.removeItem("coffees");
+    window.location.reload();
 })
