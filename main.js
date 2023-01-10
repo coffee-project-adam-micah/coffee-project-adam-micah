@@ -43,7 +43,8 @@ function addCoffee(coffee, roast) {
     coffees.push(myOb)
     localStorage.setItem("coffees" ,JSON.stringify(coffees));
 }
-
+// TODO:
+// add a function that will remove just one coffee from the list
 function loadCoffeesFromLocalStorage() {
     let arr = JSON.parse(localStorage.getItem("coffees") || "[]");
     console.log(arr);
