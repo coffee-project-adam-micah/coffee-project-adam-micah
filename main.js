@@ -11,7 +11,7 @@ function renderCoffeeDiv(coffee) {
 
 function renderCoffees(arr) {
     let html = '';
-    for(let i = 0; i < arr.length; i++) {
+    for (let i = 0; i < arr.length; i++) {
         html += renderCoffeeDiv(arr[i]);
     }
     return html;
@@ -19,6 +19,9 @@ function renderCoffees(arr) {
 
 function searchCoffees(string) {
     let arr = [];
+    if (string === "") {
+        return arr
+    }
     if (string === "all") {
         return coffees
     }
@@ -29,6 +32,20 @@ function searchCoffees(string) {
     }
     return arr;
 }
+
+function addCoffee(coffee, roast) {
+    let myId = coffees.length + 1;
+    let myOb = {
+        id: myId,
+        name: coffee,
+        roast: roast,
+    }
+    coffees.push(myOb)
+    localStorage.setItem("coffees" ,JSON.stringify(coffees));
+}
+
+
+
 
 // function updateCoffees(e) {
 //     e.preventDefault(); // don't submit the form, we just want to update the data
@@ -64,10 +81,13 @@ const tbody = document.querySelector('#coffees');
 const submitButton = document.querySelector('#submit-search');
 const coffeeSearch = document.querySelector("#coffee-search");
 const roastSelection = document.querySelector('#roast-selection');
+const submitCoffee = document.querySelector("#submit-coffee");
+const addCoffeeRoast = document.querySelector("#add-coffee-roast");
+const addCoffeeName = document.querySelector("#add-coffee-name");
 
 tbody.innerHTML = renderCoffees(coffees);
 
-submitButton.addEventListener('click', ()=> {
+submitButton.addEventListener('click', () => {
     tbody.innerHTML = renderCoffees(searchCoffees(coffeeSearch.value));
 });
 
@@ -78,3 +98,8 @@ coffeeSearch.addEventListener("keyup", () => {
 roastSelection.addEventListener('change', () => {
     tbody.innerHTML = renderCoffees(searchCoffees(roastSelection.value));
 });
+
+submitCoffee.addEventListener("click", () => {
+    addCoffee(addCoffeeName.value, addCoffeeRoast.value);
+    tbody.innerHTML = renderCoffees(coffees);
+})
