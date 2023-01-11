@@ -13,6 +13,11 @@ h1{
     color: tan;
 }
 
-.background-image{
-    background-image: url();
+#coffees {
+    display:grid;
+    place-items: center;
 }
+#coffees {
+    border: 5px solid burlywood;
+}
+
