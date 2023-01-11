@@ -5,8 +5,20 @@ h1{
     color: tan;
 }
 
+/*background cover for navbar make sure its big enough*/
+
+body {
+    background-color: blanchedalmond;
+}
+
 .font-pacifico {
     font-family: pacifico, emoji;
+}
+
+.navbar {
+    background-image: url("cafe-pictures/cafe.jpg"); /* background image */
+    background-size: cover;
+    background-position: 0px 700px;
 }
 
 /*#coffees {*/
@@ -14,7 +26,8 @@ h1{
 /*    place-items: center;*/
 /*}*/
 #coffees {
-    border: 5px solid burlywood;
+    border: 5px groove burlywood;
+    border-radius: 10px;
 }
 
 .button-remove-item {
@@ -30,13 +43,13 @@ h1{
 /*}*/
 
 /* row color */
-div.row {
-    border: 1px dashed blue;
-}
-/* cell color */
-div.row > div {
-    border: 1px solid red;
-}
-div.tall-row {
-    height: 300px;
-}
+/*div.row {*/
+/*    border: 1px dashed blue;*/
+/*}*/
+/*!* cell color *!*/
+/*div.row > div {*/
+/*    border: 1px solid red;*/
+/*}*/
+/*div.tall-row {*/
+/*    height: 300px;*/
+/*}*/
