@@ -8,13 +8,14 @@
 	<link rel="stylesheet" href="style.css">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
 	<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="container">
 <div class="container-fluid">
-<h1 class="text-center mx-auto" style="font-size: 60px">Coffee!</h1>
+<h1 class="text-center mx-auto" style="font-size: 60px">Coffee Library!</h1>
 </div>
+<div class="container-fluid">
+	<h3>Menu</h3>
 <!--	added link google fonts to closing div-->
 <form class="">
 	<label for="roast-selection" class="form-label">Roast</label>
@@ -25,9 +26,14 @@
 		<option>dark</option>
 	</select>
 	<label for="coffee-search" class="form-label">Coffee Name</label>
-	<input id="coffee-search" type="text" class="form-control" placeholder="search">
+	<input id="coffee-search" type="text" class="form-control" placeholder="Coffee Name">
 	<button id="submit-search" type="button" class="btn btn-primary my-2">Submit</button>
 </form>
+</div>
+<hr class="mb-5">
+
+<div class="container-fluid">
+<h3>Add Coffee</h3>
 <form class="">
 	<label for="add-coffee-roast" class="form-label">Roast</label>
 	<select name="roast-add" id="add-coffee-roast" class="form-control">
@@ -37,10 +43,10 @@
 		<option value="all">all</option>
 	</select>
 	<label for="add-coffee-name" class="form-label">Coffee Name</label>
-	<input id="add-coffee-name" type="text" class="form-control" placeholder="search">
+	<input id="add-coffee-name" type="text" class="form-control" placeholder="Add a Coffee">
 	<button id="submit-coffee" type="button" class="btn btn-primary my-2">Submit</button>
 </form>
-
+</div>
 <div id="coffees"></div>
 <button id="remove-local-storage" class="btn btn-warning">Delete Local Storage</button>
 <script src="main.js"></script>

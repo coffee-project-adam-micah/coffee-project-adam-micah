@@ -7,3 +7,12 @@ td, th {
     border: 1px solid black;
     padding: 5px 10px;
 }
+
+h1{
+    font-family: pacifico, emoji;
+    color: tan;
+}
+
+.background-image{
+    background-image: url();
+}
