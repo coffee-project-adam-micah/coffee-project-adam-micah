@@ -1,9 +1,12 @@
 "use strict"
 
 function renderCoffeeDiv(coffee) {
-    let html = '<div class="coffee" data-id="' + coffee.id + '">';
+    let html = '<div class="coffee d-flex flex-row align-items-end" data-id="' + coffee.id + '">';
     html += '<h1 class="d-inline-block px-2">' + coffee.name + '</h1>';
     html += '<p class="text-secondary d-inline-block">' + coffee.roast + '</p>';
+    if (coffee.addedByUser) {
+        html += `<button class="btn-sm btn-warning ms-auto button-remove-item">delete</button>`;
+    }
     html += '</div>';
 
     return html;
@@ -39,6 +42,7 @@ function addCoffee(coffee, roast) {
         id: myId,
         name: coffee,
         roast: roast,
+        addedByUser: true,
     }
     coffees.push(myOb)
     localStorage.setItem("coffees" ,JSON.stringify(coffees));
@@ -51,6 +55,13 @@ function loadCoffeesFromLocalStorage() {
     if (coffees.length < arr.length) {
         coffees = arr;
     }
+}
+
+function removeCoffeeDiv(id) {
+    const coffeeToRemoveIdx = coffees.findIndex(e => e.id === id);
+
+    coffees.splice(coffeeToRemoveIdx, 1);
+    localStorage.setItem("coffees" ,JSON.stringify(coffees));
 }
 
 // from http://www.ncausa.org/About-Coffee/Coffee-Roasts-Guide
@@ -103,4 +114,5 @@ submitCoffee.addEventListener("click", () => {
 removeLocalStorageButton.addEventListener("click", () => {
     localStorage.removeItem("coffees");
     window.location.reload();
-})
+});
+
