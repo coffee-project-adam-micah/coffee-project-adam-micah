@@ -1,7 +1,7 @@
 "use strict"
 
 function renderCoffeeDiv(coffee) {
-    let html = '<div class="coffee">';
+    let html = '<div class="coffee" data-id="' + coffee.id + '">';
     html += '<h1 class="d-inline-block px-2">' + coffee.name + '</h1>';
     html += '<p class="text-secondary d-inline-block">' + coffee.roast + '</p>';
     html += '</div>';
