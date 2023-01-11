@@ -2,10 +2,10 @@
 
 function renderCoffeeDiv(coffee) {
     let html = '<div class="coffee d-flex flex-row align-items-end" data-id="' + coffee.id + '">';
-    html += '<h1 class="d-inline-block px-2">' + coffee.name + '</h1>';
-    html += '<p class="text-secondary d-inline-block">' + coffee.roast + '</p>';
+    html += '<h1 class="me-2">' + coffee.name + '</h1>';
+    html += '<p class="text-secondary font-pacifico me-2">' + coffee.roast + '</p>';
     if (coffee.addedByUser) {
-        html += `<button class="btn-sm btn-warning ms-auto button-remove-item">delete</button>`;
+        html += `<button class="btn btn-sm btn-outline-danger ms-auto align-self-center button-remove-item"><i class="fa-solid fa-trash"></i></button>`;
     }
     html += '</div>';
 
@@ -47,8 +47,7 @@ function addCoffee(coffee, roast) {
     coffees.push(myOb)
     localStorage.setItem("coffees", JSON.stringify(coffees));
 }
-// TODO:
-// add a function that will remove just one coffee from the list
+
 function loadCoffeesFromLocalStorage() {
     let arr = JSON.parse(localStorage.getItem("coffees") || "[]");
     if (coffees.length < arr.length) {

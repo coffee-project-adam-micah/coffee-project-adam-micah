@@ -13,6 +13,10 @@ h1{
     color: tan;
 }
 
+.font-pacifico {
+    font-family: pacifico, emoji;
+}
+
 #coffees {
     display:grid;
     place-items: center;
@@ -20,6 +24,15 @@ h1{
 #coffees {
     border: 5px solid burlywood;
 }
+
+.button-remove-item {
+    visibility: hidden;
+}
+
+.coffee:hover .button-remove-item {
+    visibility: visible;
+}
+
 body {
     height: 100vh;
 }
