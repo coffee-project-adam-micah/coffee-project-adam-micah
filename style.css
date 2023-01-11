@@ -17,10 +17,10 @@ h1{
     font-family: pacifico, emoji;
 }
 
-#coffees {
-    display:grid;
-    place-items: center;
-}
+/*#coffees {*/
+/*    display:grid;*/
+/*    place-items: center;*/
+/*}*/
 #coffees {
     border: 5px solid burlywood;
 }

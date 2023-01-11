@@ -1,9 +1,9 @@
 "use strict"
 
 function renderCoffeeDiv(coffee) {
-    let html = '<div class="coffee d-flex flex-row align-items-end" data-id="' + coffee.id + '">';
-    html += '<h1 class="me-2">' + coffee.name + '</h1>';
-    html += '<p class="text-secondary font-pacifico me-2">' + coffee.roast + '</p>';
+    let html = '<div class="coffee col-6" data-id="' + coffee.id + '">';
+    html += '<h1 class=" ">' + coffee.name + '</h1>';
+    html += '<p class="text-secondary font-pacifico">' + coffee.roast + '</p>';
     if (coffee.addedByUser) {
         html += `<button class="btn btn-sm btn-outline-danger ms-auto align-self-center button-remove-item"><i class="fa-solid fa-trash"></i></button>`;
     }
