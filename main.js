@@ -1,7 +1,7 @@
 "use strict"
 
 function renderCoffeeDiv(coffee) {
-    let html = '<div class="coffee col-6" data-id="' + coffee.id + '">';
+    let html = '<div class="coffee col-md-6 col-sm-12" data-id="' + coffee.id + '">';
     html += '<h1 class=" ">' + coffee.name + '</h1>';
     html += '<p class="text-secondary font-pacifico">' + coffee.roast + '</p>';
     if (coffee.addedByUser) {

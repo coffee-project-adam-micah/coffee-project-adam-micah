@@ -1,12 +1,4 @@
-table {
-    border-collapse: collapse;
-    margin: 15px 0;
-}
 
-td, th {
-    border: 1px solid black;
-    padding: 5px 10px;
-}
 
 h1{
     font-family: pacifico, emoji;
@@ -33,9 +25,9 @@ h1{
     visibility: visible;
 }
 
-body {
-    height: 100vh;
-}
+/*body {*/
+/*    height: 100vh;*/
+/*}*/
 
 /* row color */
 div.row {
