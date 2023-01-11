@@ -1,11 +1,11 @@
 "use strict"
 
 function renderCoffeeDiv(coffee) {
-    let html = '<div class="coffee col-md-6 col-sm-12" data-id="' + coffee.id + '">';
-    html += '<h1 class=" ">' + coffee.name + '</h1>';
-    html += '<p class="text-secondary font-pacifico">' + coffee.roast + '</p>';
+    let html = '<div class="coffee col-12 col-md-6 d-flex align-items-end" data-id="' + coffee.id + '">';
+    html += '<h1 class="d-inline-block me-2">' + coffee.name + '</h1>';
+    html += '<p class="text-secondary font-pacifico d-inline-block me-2">' + coffee.roast + '</p>';
     if (coffee.addedByUser) {
-        html += `<button class="btn btn-sm btn-outline-danger ms-auto align-self-center button-remove-item"><i class="fa-solid fa-trash"></i></button>`;
+        html += `<button class="btn btn-sm btn-outline-danger button-remove-item ms-auto align-self-center"><i class="fa-solid fa-trash"></i></button>`;
     }
     html += '</div>';
 
@@ -75,10 +75,13 @@ function removeCoffeeDiv(id) {
 }
 
 function displayWarningUnder(element, name) {
-    const warning = document.createElement('div');
-    warning.classList.add('alert', 'alert-warning', 'alert-dismissible', 'fade', 'show');
-    warning.innerHTML = `${name} already exists! <button type="button" class="btn-close" data-bs-dismiss="alert"></button>`
-    element.parentNode.insertBefore(warning, element.nextSibling);
+    if (document.getElementById("warning-alert") === null) {
+        const warning = document.createElement('div');
+        warning.id = 'warning-alert';
+        warning.classList.add('alert', 'alert-warning', 'alert-dismissible', 'fade', 'show');
+        warning.innerHTML = `${name} already exists! <button type="button" class="btn-close" data-bs-dismiss="alert"></button>`
+        element.parentNode.insertBefore(warning, element.nextSibling);
+    }
 }
 
 function addRemoveItemEventListeners() {
@@ -119,6 +122,7 @@ const addCoffeeRoast = document.querySelector("#add-coffee-roast");
 const addCoffeeName = document.querySelector("#add-coffee-name");
 const removeLocalStorageButton = document.querySelector('#remove-local-storage');
 const removeItemButtons = document.getElementsByClassName('button-remove-item');
+let isAlertDisplaying = false
 
 loadCoffeesFromLocalStorage();
 tbody.innerHTML = renderCoffees(coffees);
