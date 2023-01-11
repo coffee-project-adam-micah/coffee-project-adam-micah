@@ -25,7 +25,7 @@ function searchCoffees(string) {
     if (string === "") {
         return arr
     }
-    if (string === "all") {
+    if (string === "all roasts") {
         return coffees
     }
     for (const coffee of coffees) {
