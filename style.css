@@ -34,6 +34,10 @@ body {
     visibility: hidden;
 }
 
+#main-content {
+    max-width: 100%;
+}
+
 .coffee:hover .button-remove-item {
     visibility: visible;
 }
