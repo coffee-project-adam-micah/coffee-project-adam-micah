@@ -36,16 +36,29 @@ function searchCoffees(string) {
     return arr;
 }
 
-function addCoffee(coffee, roast) {
+function addCoffee(name, roast) {
+    if (checkForCoffeeDuplicates(name, roast)) {
+        return
+    }
     let myId = coffees.length + 1;
     let myOb = {
         id: myId,
-        name: coffee,
+        name: name,
         roast: roast,
         addedByUser: true,
     }
     coffees.push(myOb)
     localStorage.setItem("coffees", JSON.stringify(coffees));
+}
+
+function checkForCoffeeDuplicates(name, roast) {
+    for (const coffee of coffees) {
+        if (coffee.name.toLowerCase() === name.toLowerCase() && coffee.roast.toLowerCase() === roast.toLowerCase()) {
+            displayWarningUnder(submitCoffee, coffee.name);
+            return true;
+        }
+    }
+    return false;
 }
 
 function loadCoffeesFromLocalStorage() {
@@ -59,6 +72,13 @@ function removeCoffeeDiv(id) {
     const coffeeToRemoveIdx = coffees.findIndex(e => e.id === id);
     coffees.splice(coffeeToRemoveIdx, 1);
     localStorage.setItem("coffees", JSON.stringify(coffees));
+}
+
+function displayWarningUnder(element, name) {
+    const warning = document.createElement('div');
+    warning.classList.add('alert', 'alert-warning', 'alert-dismissible', 'fade', 'show');
+    warning.innerHTML = `${name} already exists! <button type="button" class="btn-close" data-bs-dismiss="alert"></button>`
+    element.parentNode.insertBefore(warning, element.nextSibling);
 }
 
 function addRemoveItemEventListeners() {
