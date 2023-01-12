@@ -56,6 +56,10 @@ function filterCoffeeArray(arr) {
 }
 
 function addCoffee(name, roast) {
+    if (name === '') {
+        displayWarningUnder(submitCoffee.parentElement, name);
+        return
+    }
     if (checkForCoffeeDuplicates(name, roast)) {
         return
     }
@@ -98,7 +102,12 @@ function displayWarningUnder(element, name) {
         const warning = document.createElement('div');
         warning.id = 'warning-alert';
         warning.classList.add('alert', 'alert-warning', 'alert-dismissible', 'fade', 'show');
-        warning.innerHTML = `${name} already exists! <button type="button" class="btn-close" data-bs-dismiss="alert"></button>`
+        if (name === '')
+        {
+            warning.innerHTML = `Name can't be empty! <button type="button" class="btn-close" data-bs-dismiss="alert"></button>`
+        } else {
+            warning.innerHTML = `${name} already exists! <button type="button" class="btn-close" data-bs-dismiss="alert"></button>`
+        }
         element.parentNode.insertBefore(warning, element.nextSibling);
     }
 }
