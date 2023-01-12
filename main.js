@@ -7,8 +7,10 @@ function renderCoffeeDiv(coffee) {
     if (coffee.addedByUser) {
         html += `<button class="btn btn-sm btn-outline-danger button-remove-item ms-auto align-self-center"><i class="fa-solid fa-trash"></i></button>`;
     }
-    html += `</div><p class="w-75 coffee-flavor-text animate__animated animate__fadeIn d-inline-block">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid eius magni numquam quos suscipit veritatis.</p>`;
-    html += '</div>';
+
+    html += `</div><div class="w-100 d-flex justify-content-between animate__animated animate__fadeIn coffee-flavor-text"><p class="w-75    d-inline-block">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid eius magni numquam quos suscipit veritatis.</p>`;
+    // html += <img src={"' + coffee.id + '"} alt={coffee}>
+    html +='<img class="align-self-center" src="' + img + '" alt="img"></div></div>';
 
     return html;
 }
@@ -111,10 +113,12 @@ function addRemoveItemEventListeners() {
         });
     }
 }
+// image variable
+let img="./cafe-pictures/dark.jpg";
 
 // from http://www.ncausa.org/About-Coffee/Coffee-Roasts-Guide
 let coffees = [
-    {id: 1, name: 'Light City', roast: 'light'},
+    {id: 1, name: 'Light City', roast: 'light', image:img},
     {id: 2, name: 'Half City', roast: 'light'},
     {id: 3, name: 'Cinnamon', roast: 'light'},
     {id: 4, name: 'City', roast: 'medium'},
