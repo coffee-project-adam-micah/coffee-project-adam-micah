@@ -15,10 +15,12 @@ body {
     font-family: pacifico, emoji;
 }
 
-.navbar {
+.custom-navbar {
     background-image: url("cafe-pictures/cafe.jpg"); /* background image */
+    background-attachment: fixed;
+    background-repeat: no-repeat;
     background-size: cover;
-    background-position: 0 700px;
+    background-position: 0 -80px;
 }
 
 /*#coffees {*/
