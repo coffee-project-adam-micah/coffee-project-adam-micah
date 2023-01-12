@@ -70,7 +70,7 @@ function addCoffee(name, roast) {
 function checkForCoffeeDuplicates(name, roast) {
     for (const coffee of coffees) {
         if (coffee.name.toLowerCase() === name.toLowerCase() && coffee.roast.toLowerCase() === roast.toLowerCase()) {
-            displayWarningUnder(submitCoffee, coffee.name);
+            displayWarningUnder(submitCoffee.parentElement, coffee.name);
             return true;
         }
     }
@@ -138,6 +138,8 @@ const addCoffeeRoast = document.querySelector("#add-coffee-roast");
 const addCoffeeName = document.querySelector("#add-coffee-name");
 const removeLocalStorageButton = document.querySelector('#remove-local-storage');
 const removeItemButtons = document.getElementsByClassName('button-remove-item');
+const searchForm = document.querySelector("#form-search");
+const addCoffeeForm = document.querySelector("#form-add-coffee");
 
 loadCoffeesFromLocalStorage();
 tbody.innerHTML = renderCoffees(coffees);
@@ -165,4 +167,16 @@ removeLocalStorageButton.addEventListener("click", () => {
     localStorage.removeItem("coffees");
     window.location.reload();
 });
+
+searchForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    tbody.innerHTML = renderCoffees(filterCoffeeArray(searchCoffees(coffeeSearch.value.trim())));
+});
+
+addCoffeeForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    addCoffee(addCoffeeName.value, addCoffeeRoast.value);
+    tbody.innerHTML = renderCoffees(coffees);
+    addRemoveItemEventListeners();
+})
 
