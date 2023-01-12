@@ -1,5 +1,3 @@
-
-
 h1{
     font-family: pacifico, emoji;
     color: tan;
@@ -42,6 +40,15 @@ body {
 
 .coffee:hover .button-remove-item {
     visibility: visible;
+}
+
+.coffee:hover .coffee-flavor-text {
+    display: block !important;
+}
+
+.coffee-flavor-text {
+    color: #706643;
+    display: none !important;
 }
 
 /*body {*/

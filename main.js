@@ -1,12 +1,13 @@
 "use strict"
 
 function renderCoffeeDiv(coffee) {
-    let html = '<div class="coffee col-12 col-md-6 d-flex align-items-end" data-id="' + coffee.id + '">';
-    html += '<h1 class="d-inline-block me-2">' + coffee.name + '</h1>';
+    let html = '<div class="coffee col-12 col-md-6" data-id="' + coffee.id + '">';
+    html += '<div class="w-100 d-flex align-items-end"><h1 class="d-inline-block me-2">' + coffee.name + '</h1>';
     html += '<p class="text-secondary font-pacifico d-inline-block me-2">' + coffee.roast + '</p>';
     if (coffee.addedByUser) {
         html += `<button class="btn btn-sm btn-outline-danger button-remove-item ms-auto align-self-center"><i class="fa-solid fa-trash"></i></button>`;
     }
+    html += `</div><p class="w-75 coffee-flavor-text animate__animated animate__fadeIn d-inline-block">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid eius magni numquam quos suscipit veritatis.</p>`;
     html += '</div>';
 
     return html;
