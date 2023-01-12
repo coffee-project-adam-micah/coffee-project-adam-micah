@@ -122,7 +122,6 @@ const addCoffeeRoast = document.querySelector("#add-coffee-roast");
 const addCoffeeName = document.querySelector("#add-coffee-name");
 const removeLocalStorageButton = document.querySelector('#remove-local-storage');
 const removeItemButtons = document.getElementsByClassName('button-remove-item');
-let isAlertDisplaying = false
 
 loadCoffeesFromLocalStorage();
 tbody.innerHTML = renderCoffees(coffees);
