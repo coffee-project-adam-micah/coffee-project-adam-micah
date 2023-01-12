@@ -23,7 +23,7 @@ function renderCoffees(arr) {
 function searchCoffees(string) {
     let arr = [];
     if (string === "") {
-        return arr
+        return coffees
     }
     if (string === "all roasts") {
         return coffees
@@ -34,6 +34,22 @@ function searchCoffees(string) {
         }
     }
     return arr;
+}
+
+function filterCoffeeArray(arr) {
+    const filter = document.querySelector('#roast-selection').value;
+    const filteredArray = [];
+
+    if (filter === 'all roasts') {
+        return arr
+    }
+
+    for (let i = 0; i < arr.length; i++) {
+        if (filter === arr[i].roast) {
+            filteredArray.push(arr[i]);
+        }
+    }
+    return filteredArray
 }
 
 function addCoffee(name, roast) {
@@ -132,11 +148,11 @@ submitButton.addEventListener('click', () => {
 });
 
 coffeeSearch.addEventListener("keyup", () => {
-    tbody.innerHTML = renderCoffees(searchCoffees(coffeeSearch.value.trim()));
+    tbody.innerHTML = renderCoffees(filterCoffeeArray(searchCoffees(coffeeSearch.value.trim())));
 });
 
 roastSelection.addEventListener('change', () => {
-    tbody.innerHTML = renderCoffees(searchCoffees(roastSelection.value));
+    tbody.innerHTML = renderCoffees(filterCoffeeArray(searchCoffees(coffeeSearch.value.trim())));
 });
 
 submitCoffee.addEventListener("click", () => {
